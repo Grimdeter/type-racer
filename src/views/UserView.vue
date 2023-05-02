@@ -3,6 +3,7 @@ import { useUserStore } from '@/stores/user.store'
 import { computed, onMounted, ref } from 'vue'
 import UserInfoTabelRow from '@/components/UserInfoTabelRow.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import PlayerPlays from '@/components/PlayerPlays.vue'
 import type { userInterface } from '@/models/models'
 
 const userStore = useUserStore()
@@ -22,7 +23,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="m-auto my-28 md:w-1/3 w-full">
+  <div class="m-auto mt-28 md:w-1/3 w-full">
     <div class="border-2 border-slate-800 rounded p-10">
       <h1>Your account:</h1>
       <hr />
@@ -39,4 +40,6 @@ onMounted(() => {
       </div>
     </div>
   </div>
+  <h1>Your plays</h1>
+  <PlayerPlays />
 </template>

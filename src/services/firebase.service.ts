@@ -5,6 +5,9 @@ import {
   getDocs,
   getFirestore,
   addDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
   type DocumentData
 } from 'firebase/firestore'
 import type { leaderboardInstance } from '@/models/models'
@@ -30,8 +33,9 @@ export const getFullLeaderboard = async () => {
   let arrForReturn: DocumentData[] = []
   querySnap.forEach((doc) => {
     // console.log('pushing')
-    // console.log(doc.data())
-    arrForReturn.push(doc.data())
+    const objectToAdd = doc.data()
+    objectToAdd.docID = doc.id
+    arrForReturn.push(objectToAdd)
   })
   return arrForReturn as unknown as leaderboardInstance[]
 }
@@ -57,4 +61,11 @@ export const addNewUser = async (username: string, uid: string) => {
   const objectToAdd = { username: username, userID: uid, racesPlayed: 0 }
   const docRef = await addDoc(usersCollection, objectToAdd)
   return docRef.id
+}
+
+export const updatePlayerScore = async (newUsername: string, docID: string) => {
+  return await updateDoc(doc(db, 'Leaderboard', docID), { Username: newUsername })
+}
+export const deletePlayerScore = async (docID: string) => {
+  return await deleteDoc(doc(db, 'Leaderboard', docID))
 }
