@@ -4,7 +4,7 @@ export interface leaderboardInstance {
   promptWord: string
   wpm: number
   userID: string
-  docID: string
+  docID?: string
 }
 
 export interface userInterface {

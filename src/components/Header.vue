@@ -34,7 +34,6 @@ const menuStatus = computed(() => {
           <img
             src="https://cdn3.iconfinder.com/data/icons/technology-and-electronics/96/Picture5-1024.png"
             class="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
           />
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
             >Type racer</span

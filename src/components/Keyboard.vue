@@ -3,8 +3,6 @@
 function highlightKey(e: KeyboardEvent) {
   let allTheKeys = document.getElementById('keyboard')
   let changeKeys = document.getElementsByClassName('shifter')
-  let capsLockKey = document.getElementById('20')
-  let shiftKey = document.getElementById('16')
 
   //Store all the original values of the non-alphabetical keys
   let originalShifterArray = <string[]>[]
@@ -40,10 +38,10 @@ function highlightKey(e: KeyboardEvent) {
 
   let keyPressed = e.keyCode
   let charPressed = e.key
-  const keys = document.getElementById(keyPressed)
+  const keys = document.getElementById(keyPressed.toString())
 
   keys!.classList.add('pressed')
-  console.log(e)
+  // console.log(e)
 
   //If the user presses CapsLock or Shift, make the alphabetical keys uppercase
   if (charPressed == 'CapsLock' || charPressed == 'Shift') {
@@ -94,7 +92,7 @@ function removeKeypress(e: KeyboardEvent) {
   }
 
   let keyDepressed = e.keyCode
-  const keys = document.getElementById(keyDepressed)
+  const keys = document.getElementById(keyDepressed.toString())
 
   keys!.classList.remove('pressed')
   //If CapsLock or Shift was just let off, and if the other isn't still on, return keys to lowercase
@@ -106,7 +104,7 @@ function removeKeypress(e: KeyboardEvent) {
   }
   //If Shift was just let off, replace all non-alphabetical keys with their original values rather than their shifted values
   if (keyDepressed === 16) {
-    console.log(originalShifterArray)
+    // console.log(originalShifterArray)
     for (let i = 0; i < changeKeys.length; i++) {
       changeKeys[i].innerHTML = originalShifterArray[i]
     }

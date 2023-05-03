@@ -24,7 +24,7 @@ const text_store = useTextStore()
     </div>
   </div>
   <div
-    class="mx-auto flex justify-center my-11"
+    class="mx-auto lg:flex justify-center my-11 hidden"
     v-if="text_store.currWord !== text_store.text_target.length"
   >
     <Keyboard />

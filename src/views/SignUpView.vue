@@ -19,7 +19,7 @@ const singUpUser = () => {
 </script>
 <template>
   <!-- This is an example component -->
-  <div class="w-1/3 mx-auto my-28">
+  <div class="md:w-1/3 w-11/12 mx-auto my-28">
     <div
       class="mx-auto bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700"
     >
