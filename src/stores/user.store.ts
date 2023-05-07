@@ -11,17 +11,16 @@ import {
   signInWithPopup
 } from 'firebase/auth'
 import { defineStore } from 'pinia'
-import { useRouter } from 'vue-router'
-import { addNewUser, getUser } from '@/services/firebase.service'
+import { getUser } from '@/services/firebase.service'
 import { getFullLeaderboard } from '@/services/firebase.service'
 import type { leaderboardInstance, userInterface } from '@/models/models'
 
 export const useUserStore = defineStore('user', () => {
   const auth = ref(getAuth())
   const username = ref('')
-  const router = useRouter()
   const isLoggedIn = ref(false)
   const userInfo = ref()
+  const soundLevel = ref(50)
 
   setPersistence(auth.value, browserLocalPersistence)
 
@@ -119,6 +118,7 @@ export const useUserStore = defineStore('user', () => {
     isLoggedIn,
     userInfo,
     username,
+    soundLevel,
     createUser,
     handleAuthStateChange,
     computeUserInfo,

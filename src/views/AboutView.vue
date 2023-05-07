@@ -26,7 +26,7 @@ const carouselObjects = [
   {
     text: 'CRUD operations in this application are implemented in several parts. Each time a player submits a score to the leaderboard, new data is created in Firestore. The full leaderboard can be accessed on the leaderboard page, where it is read from the database. Each registered user can view and edit their username on any of their plays, or delete the play entirely.',
     imgLink:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fpracticaldev%2Fimage%2Ffetch%2Fs--O2cjB-id--%2Fc_imagga_scale%2Cf_auto%2Cfl_progressive%2Ch_420%2Cq_auto%2Cw_1000%2Fhttps%3A%2F%2Fthepracticaldev.s3.amazonaws.com%2Fi%2Fa3exuz06e9h212pandfr.png&f=1&nofb=1&ipt=1996a8cbd8ad09fbcb4af5840a2b95dd576e395ce43339987303fa57dd6338cc&ipo=images'
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-k1ORhC6_IsE%2FXmdOqDVKX6I%2FAAAAAAAAAB4%2F3ZOOVJEoU9I4DMYXUtd1fh0efqxV-yY2gCLcBGAsYHQ%2Fw1200-h630-p-k-no-nu%2Fcrud.jpg&f=1&nofb=1&ipt=732252829bead2d6ab574fb8c53ce92a547f4117c417197bcf480fbb29c5cf34&ipo=images'
   }
 ]
 </script>
@@ -82,7 +82,7 @@ const carouselObjects = [
     </p>
   </div>
   <div class="my-14">
-    <carousel :items-to-show="1.1">
+    <carousel :items-to-show="1.1" :wrap-around="true">
       <slide v-for="slide in carouselObjects" :key="slide.text">
         <div class="flex justify-center">
           <div class="w-11/12 my-auto shadow-lg">

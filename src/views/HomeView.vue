@@ -4,6 +4,7 @@ import TargetText from '@/components/TargetText.vue'
 import { useTextStore } from '@/stores/text.store'
 import ShowResults from '@/components/ShowResults.vue'
 import Keyboard from '@/components/Keyboard.vue'
+import SoundControl from '@/components/SoundControl.vue'
 
 const text_store = useTextStore()
 </script>
@@ -24,9 +25,10 @@ const text_store = useTextStore()
     </div>
   </div>
   <div
-    class="mx-auto lg:flex justify-center my-11 hidden"
+    class="mx-auto lg:flex flex-col align-middle justify-center my-11 hidden"
     v-if="text_store.currWord !== text_store.text_target.length"
   >
+    <SoundControl />
     <Keyboard />
   </div>
 </template>

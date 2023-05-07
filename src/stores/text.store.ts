@@ -1,9 +1,11 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { dictionaryAxios } from '@/services/axios.service'
+import { words } from '@/assets/dictionaryWords'
 
 export const useTextStore = defineStore('text', () => {
-  const possibleWords = ['mitochondria', 'adaptation', 'axon', 'diffusion']
+  const possibleWords = words
+
   const text_target = ref(<string[]>[])
   const text_input = ref('')
   const text_input_full = ref(<string[]>[])
@@ -15,14 +17,20 @@ export const useTextStore = defineStore('text', () => {
 
   const getRandomDefinition = () => {
     promptWord.value = possibleWords[Math.floor(Math.random() * possibleWords.length)]
-    dictionaryAxios.get(promptWord.value).then((data) => {
-      text_target.value = (data as unknown as string).split(' ')
-      text_input_full.value = []
-      numberOfMistakes.value = 0
-      currWord.value = 0
-      seconds.value = 0
-      text_input.value = ''
-    })
+    dictionaryAxios
+      .get(promptWord.value)
+      .then((data) => {
+        text_target.value = (data as unknown as string).split(' ')
+        text_input_full.value = []
+        numberOfMistakes.value = 0
+        currWord.value = 0
+        seconds.value = 0
+        text_input.value = ''
+      })
+      .catch((e) => {
+        console.log('word not found')
+        getRandomDefinition()
+      })
   }
 
   const deliverMistake = computed(() => {

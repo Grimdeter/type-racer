@@ -10,11 +10,11 @@ const showTextVanishingStyle = computed(() => {
   let text_input_full = text_store.text_input_full.join(' ') + ' ' + text_store.text_input
   let currIndex = levDist(text_target, text_input_full.trim())
 
-  console.log(`text_input_full.length ${text_input_full.length}`)
-  console.log(`text_input_full ${text_input_full}`)
-  console.log(`text_target.length ${text_target.length}`)
-  console.log(`currIndex ${currIndex}`)
-  console.log(`________________________`)
+  // console.log(`text_input_full.length ${text_input_full.length}`)
+  // console.log(`text_input_full ${text_input_full}`)
+  // console.log(`text_target.length ${text_target.length}`)
+  // console.log(`currIndex ${currIndex}`)
+  // console.log(`________________________`)
   if (text_target.length - currIndex === 1 && text_input_full.length === 1) {
     return text_target.slice(0)
   }
@@ -120,7 +120,7 @@ function handleChangeOfStyle(styleOfChoice: number) {
       </h4>
     </div>
   </div>
-  <div class="flex justify-end mt-5" v-if="text_store.text_input_full.length === 0">
+  <div class="flex justify-end mt-5">
     <div class="">
       <button
         class="ml-auto group relative bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"

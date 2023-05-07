@@ -32,6 +32,7 @@ const submitScore = () => {
     promptWord: text_store.promptWord,
     userID: userID
   }
+
   if (username.value !== '') {
     objectToAdd.Username = username.value
   }
@@ -90,11 +91,19 @@ const submitScore = () => {
         </h1>
       </div>
     </div>
-    <button
-      class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-      @click="submitScore"
-    >
-      Submit to leaderboard
-    </button>
+    <div class="flex justify-between">
+      <button
+        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        @click="submitScore"
+      >
+        Submit to leaderboard
+      </button>
+      <button
+        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        @click="text_store.getRandomDefinition"
+      >
+        Play again
+      </button>
+    </div>
   </div>
 </template>

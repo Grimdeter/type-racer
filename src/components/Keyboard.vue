@@ -119,7 +119,7 @@ window.addEventListener('keyup', removeKeypress)
 </script>
 
 <template>
-  <div class="container">
+  <div class="container m-auto">
     <div id="keyboard" class="mx-auto">
       <div id="firstrow" class="keyboard-row">
         <kbd class="shifter" id="192">`</kbd>
