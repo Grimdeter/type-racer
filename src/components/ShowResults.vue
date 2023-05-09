@@ -63,7 +63,7 @@ const submitScore = () => {
           id=""
           v-model.trim="username"
           placeholder="Anon"
-          class="px-4"
+          class="dark:bg-slate-900 dark:text-white px-4"
         />
       </div>
       <div class="flex justify-between">
@@ -91,15 +91,15 @@ const submitScore = () => {
         </h1>
       </div>
     </div>
-    <div class="flex justify-between">
+    <div class="flex justify-between mt-5">
       <button
-        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        class="dark:bg-slate-900 dark:text-white bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
         @click="submitScore"
       >
         Submit to leaderboard
       </button>
       <button
-        class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        class="dark:bg-slate-900 dark:text-white bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
         @click="text_store.getRandomDefinition"
       >
         Play again

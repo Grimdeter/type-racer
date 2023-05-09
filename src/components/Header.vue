@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { useUserStore } from '@/stores/user.store'
 import { computed, ref } from 'vue'
+import ModeSwitch from '@/components/ModeSwitch.vue'
 
 const userStore = useUserStore()
 const showMenu = ref(false)
@@ -28,12 +29,12 @@ const menuStatus = computed(() => {
 
 <template>
   <header>
-    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-slate-900">
       <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <RouterLink to="/" class="flex items-center">
           <img
             src="https://cdn3.iconfinder.com/data/icons/technology-and-electronics/96/Picture5-1024.png"
-            class="mr-3 h-6 sm:h-9"
+            class="mr-3 h-6 sm:h-9 dark:invert"
           />
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
             >Type racer</span
@@ -61,6 +62,8 @@ const menuStatus = computed(() => {
           >
             Get racin
           </router-link>
+          <ModeSwitch />
+
           <button
             @click="openMenu"
             data-collapse-toggle="mobile-menu-2"

@@ -15,9 +15,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="lg:px-12">
+  <div class="lg:px-12 dark:text-white dark:bg-slate-900">
     <Header />
-
     <RouterView />
   </div>
 </template>

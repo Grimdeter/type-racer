@@ -31,9 +31,9 @@ const carouselObjects = [
 ]
 </script>
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center min-h-min">
     <div class="w-11/12 lg:w-3/5 mt-12 my-auto shadow-lg">
-      <div class="flex flex-col sm:flex-row rounded-xl bg-white bg-clip-border">
+      <div class="flex flex-col sm:flex-row rounded-xl bg-white bg-clip-border dark:bg-slate-900">
         <div class="mx-4 -mt-6 translate-y-0 flex justify-center">
           <img
             class="w-auto rounded-lg m-auto h-96"
@@ -81,12 +81,14 @@ const carouselObjects = [
       >
     </p>
   </div>
-  <div class="my-14">
+  <div class="py-14">
     <carousel :items-to-show="1.1" :wrap-around="true">
       <slide v-for="slide in carouselObjects" :key="slide.text">
         <div class="flex justify-center">
           <div class="w-11/12 my-auto shadow-lg">
-            <div class="flex flex-col lg:flex-row rounded-xl bg-white bg-clip-border">
+            <div
+              class="flex flex-col lg:flex-row rounded-xl bg-white bg-clip-border dark:bg-slate-900"
+            >
               <div class="text-secondary flex-1 p-6 flex align-middle">
                 <p class="opcacity-60 my-auto">
                   {{ slide.text }}
@@ -101,8 +103,8 @@ const carouselObjects = [
       </slide>
 
       <template #addons>
-        <navigation />
-        <pagination />
+        <navigation class="dark:invert" />
+        <pagination class="dark:invert" />
       </template>
     </carousel>
   </div>

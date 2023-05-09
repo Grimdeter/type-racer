@@ -32,7 +32,7 @@ function handleDeleteScore() {
     </td>
     <td class="whitespace-nowrap px-6 py-4 w-[550px]">
       <div class="flex align-middle">
-        <input type="text" v-model.trim="newUsername" />
+        <input type="text" v-model.trim="newUsername" class="dark:bg-slate-900" />
         <transition
           enter-from-class="translate-x-[-150%] opacity-0"
           enter-active-class="transition duration-200"

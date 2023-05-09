@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTextStore } from '@/stores/text.store'
 import { computed, ref } from 'vue'
+import Card from './Card.vue'
 
 const text_store = useTextStore()
 const styleChoice = ref(1)
@@ -10,11 +11,6 @@ const showTextVanishingStyle = computed(() => {
   let text_input_full = text_store.text_input_full.join(' ') + ' ' + text_store.text_input
   let currIndex = levDist(text_target, text_input_full.trim())
 
-  // console.log(`text_input_full.length ${text_input_full.length}`)
-  // console.log(`text_input_full ${text_input_full}`)
-  // console.log(`text_target.length ${text_target.length}`)
-  // console.log(`currIndex ${currIndex}`)
-  // console.log(`________________________`)
   if (text_target.length - currIndex === 1 && text_input_full.length === 1) {
     return text_target.slice(0)
   }
@@ -98,32 +94,28 @@ function handleChangeOfStyle(styleOfChoice: number) {
       :style="{ width: (text_store.currWord / text_store.text_target.length) * 100 + '%' }"
     ></div>
   </div>
-  <div
-    class="relative flex flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-  >
-    <div class="p-6">
-      <h4
-        class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
-        v-if="styleChoice === 0"
-      >
-        {{ showTextVanishingStyle }}
-      </h4>
-      <h4
-        class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
-        v-else
-      >
-        <span class="text-cyan-600">{{ showTextHighlightStyle }}</span>
-        <span class="text-pink-600" v-show="text_store.oops_mistake">{{
-          showMistakeHighlightStyle
-        }}</span>
-        <span class="opacity-50 text-gray-500">{{ showTextVanishingStyle }}</span>
-      </h4>
-    </div>
-  </div>
+  <Card>
+    <h4
+      class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+      v-if="styleChoice === 0"
+    >
+      {{ showTextVanishingStyle }}
+    </h4>
+    <h4
+      class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+      v-else
+    >
+      <span class="text-cyan-600">{{ showTextHighlightStyle }}</span>
+      <span class="text-pink-600" v-show="text_store.oops_mistake">{{
+        showMistakeHighlightStyle
+      }}</span>
+      <span class="opacity-50 text-gray-500">{{ showTextVanishingStyle }}</span>
+    </h4>
+  </Card>
   <div class="flex justify-end mt-5">
     <div class="">
       <button
-        class="ml-auto group relative bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        class="dark:bg-slate-900 dark:text-white ml-auto group relative bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
         @click="handleChangeOfStyle(0)"
       >
         Vanishing Style
@@ -136,7 +128,7 @@ function handleChangeOfStyle(styleOfChoice: number) {
     </div>
     <div class="mx-3">
       <button
-        class="ml-auto group relative bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        class="dark:bg-slate-900 dark:text-white ml-auto group relative bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
         @click="handleChangeOfStyle(1)"
       >
         Highlight Style

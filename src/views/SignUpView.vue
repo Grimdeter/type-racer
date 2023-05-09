@@ -18,8 +18,7 @@ const singUpUser = () => {
 }
 </script>
 <template>
-  <!-- This is an example component -->
-  <div class="md:w-1/3 w-11/12 mx-auto my-28">
+  <div class="md:w-1/3 w-11/12 mx-auto pt-28" style="height: 93.8vh">
     <div
       class="mx-auto bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700"
     >
@@ -94,7 +93,7 @@ const singUpUser = () => {
           class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           @click="singUpUser"
         >
-          Create to your account
+          Create an your account
         </button>
       </form>
     </div>
