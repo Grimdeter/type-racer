@@ -5,7 +5,6 @@ import { words } from '@/assets/dictionaryWords'
 
 export const useTextStore = defineStore('text', () => {
   const possibleWords = words
-
   const text_target = ref(<string[]>[])
   const text_input = ref('')
   const text_input_full = ref(<string[]>[])

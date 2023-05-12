@@ -24,11 +24,7 @@ const changeBorderLabel = computed(() => {
 })
 
 const blockInput = computed(() => {
-  if (text_store.deliverMistake) {
-    return 0
-  } else {
-    return 100
-  }
+  return text_store.deliverMistake ? 0 : 100
 })
 
 const startCounter = () => {
@@ -42,6 +38,7 @@ watch(currWord, () => {
   if (text_store.text_target.length === currWord.value) {
     console.log('timer stopped')
     clearInterval(secondsInterval.value)
+    counterStarted.value = false
   }
 })
 </script>
